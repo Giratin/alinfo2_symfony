@@ -1,0 +1,27 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <center>
+      <h1> Liste des classes </h1>
+      <table border="1" style="width: max-content">
+          <thead>
+              <th> Id </th>
+              <th> Name </th>
+              <th> Action </th>
+          </thead>
+          <tbody>
+          {% for item in classrooms %}
+              <tr>
+                  <td> {{ item.id}} </td>
+                  <td> {{ item.Name }} </td>
+                  <td>
+                      <a href="{{ path('classroom_update', { 'id' : item.id }) }}">Modifier</a>
+                      <a href="{{ path('classroom_delete', { 'id' : item.id }) }}">Supprimer</a>
+                  </td>
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+  </center>
+{% endblock %}

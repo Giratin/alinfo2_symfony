@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <fieldset style="width: max-content;">
+            <legend>Create Teacher</legend>
+            {{ form_start(teacher_form) }}
+                {{ form_label(teacher_form.Name, 'this is the name' ) }}
+                {{ form_widget(teacher_form.Name ) }}
+            {{ form_end(teacher_form) }}
+        </fieldset>
+    </center>
+</body>
+</html>
