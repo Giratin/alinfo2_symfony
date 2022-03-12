@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Club;
+use App\Form\ClubType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,6 +18,26 @@ class ClubController extends AbstractController
     {
         return $this->render('club/index.html.twig', [
             'controller_name' => 'ClubController',
+        ]);
+    }
+
+    /**
+     * @Route("/club/create", name="club_create")
+     */
+    public function create(Request $request): Response
+    {
+        $club = new Club();
+        $em = $this->getDoctrine()->getManager();
+
+        $form = $this->createForm(ClubType::class, $club);
+        $form->handleRequest($request);
+        if($form->isSubmitted() and $form->isValid()){
+            $em->persist($club);
+            $em->flush();
+        }
+
+        return $this->render('club/create.html.twig', [
+            'form_club' => $form->createView(),
         ]);
     }
 

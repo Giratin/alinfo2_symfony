@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StudentController!{% endblock %}
+
+{% block body %}
+ <center>
+     <table border="1" style="width: max-content">
+         <thead>
+            <th> NSC </th>
+            <th> Email </th>
+            <th> Classe </th>
+         </thead>
+         <tbody>
+            {% for student in students %}
+                <tr>
+                    <td> {{ student.nsc }} </td>
+                    <td> {{ student.Email }} </td>
+                    <td> {{ student.classroom.Name }} </td>
+                </tr>
+            {% endfor %}
+         </tbody>
+
+     </table>
+ </center>
+{% endblock %}
